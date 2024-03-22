@@ -26,8 +26,12 @@ This is a Habit Tracker  Project which is built using Nodejs, Ejs , CSS, Javascr
 - express<br/>
 - mongoose<br/>
 - nodemon<br/>
+<<<<<<< HEAD
 ## To Start
 - nodemon index.js
+=======
+
+>>>>>>> 9bef010a66bd335f7f772b28923c6bcaa182a109
 Hosted URL - https://habit-tracker-vztu.onrender.com/
 
 
