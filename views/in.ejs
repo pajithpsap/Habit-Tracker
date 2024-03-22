@@ -46,7 +46,7 @@
                                 <% const trackingForDay = habit.tracking.find(tracking=>(tracking.dateString === getDate(i))) %>
                                 <% if (trackingForDay) { %>
                                     <% if (trackingForDay.done) { %>
-                                        <div  class="habit-done">Done</div>
+                                        <div id="habit-done"  class="habit-done">Done</div>
                                     <% } else { %>
                                         <div class="habit-undone">Not Done</div>
                                     <% } %>
@@ -55,8 +55,8 @@
                                 <% } %>
                                 <!-- Buttons to mark habit done/undone and delete the habit -->
                                 <div class="habit-buttons">
-                                    <button class="mark-done" onclick="markDone('<%= habit._id %>', '<%= i %>', '<%= getDate(i) %>')" reloadPage()>Done</button>
-                                    <button class="mark-undone" onclick="markUndone('<%= habit._id %>', '<%= i %>', '<%= getDate(i) %>')" reloadPage()>Not done</button>
+                                    <button id="mark-done" class="mark-done" onclick="markDone('<%= habit._id %>', '<%= i %>', '<%= getDate(i) %>')">Done</button>
+                                    <button class="mark-undone" onclick="markUndone('<%= habit._id %>', '<%= i %>', '<%= getDate(i) %>')">Not done</button>
                                     
                                 </div>
                             </div>
@@ -78,9 +78,8 @@
         return `${month}/${day}/${year}`;
     } %>
   <script>
-    function reloadPage() {
-        window.location.reload();
-    }
+              
+
     function markDone(habitId, dayIndex, date) {
         // Send a PATCH request to mark the habit as done for the specified day
         fetch(`/habits/${habitId}`, {
@@ -94,12 +93,7 @@
             if (!response.ok) {
                 throw new Error('Failed to mark habit as done');
             }
-                const done = document.getElementById("mark-done")
-                const habitdone = document.getElementById("habit-done")
-                done.addEventListener("click",()=>{
-                    habitdone.style.color='green';
-                });
-                window.location.reload();
+            window.location.href = '/';  
         })
         .catch(error => {
             console.error('Error marking habit as done:', error);
@@ -119,12 +113,7 @@
             if (!response.ok) {
                 throw new Error('Failed to mark habit as undone');
             }
-                const undone = document.getElementById("mark-undone")
-                const habitundone = document.getElementById("habit-undone")
-                undone.addEventListener("click",()=>{
-                    habitdone.style.back='red';
-                })
-                window.location.reload();
+            window.location.href = '/';
         })
         .catch(error => {
             console.error('Error marking habit as undone:', error);
@@ -141,7 +130,7 @@
                 throw new Error('Failed to delete habit');
             }
             // Remove the habit from the UI
-            document.querySelector(`[data-habit-id="${habitId}"]`).remove();
+            window.location.href = '/';
         })
         .catch(error => {
             console.error('Error deleting habit:', error);

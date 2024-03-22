@@ -1,4 +1,4 @@
-# Hosted URL - /
+# Hosted URL - https://habit-tracker-vztu.onrender.com/
 
 This is a Habit Tracker  Project which is built using Nodejs, Ejs , CSS, Javascript , Bootstrap
 
@@ -26,7 +26,8 @@ This is a Habit Tracker  Project which is built using Nodejs, Ejs , CSS, Javascr
 - express<br/>
 - mongoose<br/>
 - nodemon<br/>
-
-Hosted URL - /
+## To Start
+- nodemon index.js
+Hosted URL - https://habit-tracker-vztu.onrender.com/
 
 

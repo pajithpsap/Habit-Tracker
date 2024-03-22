@@ -76,8 +76,9 @@ class HomeController {
 
         // Save the updated habit to the database
         await habit.save();
-       // res.json({ message: 'Habit updated successfully', habit });
-       res.redirect("/");
+        res.json({ message: 'Habit updated successfully', habit });
+       //console.log("Redirecting to homepage");
+       //return res.redirect("/");
     } catch (error) {
         console.error("Error updating habit:", error);
         res.status(500).json({ message: "Internal server error" });
@@ -96,8 +97,8 @@ class HomeController {
         return res.status(404).json({ error: "Habit not found" });
       }
 
-      //res.json({ message: "Habit deleted successfully" });
-      res.redirect("/");
+      res.json({ message: "Habit deleted successfully" });
+     // res.redirect("/");
     } catch (error) {
       console.error("Error deleting habit:", error);
       res.status(500).json({ error: "Failed to delete habit" });
